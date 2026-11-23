@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starry Night — Human Activity Recognition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="sky"></canvas>
+
+  <!-- Painterly texture overlay -->
+  <div class="paint-overlay"></div>
+
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Inspired by Vincent van Gogh</p>
+        <h1>Starry Night</h1>
+        <p class="subtitle">Human Activity Recognition</p>
+        <p class="lede">
+          A 2.56-second slice of waist-worn phone sensors, classified by a
+          bidirectional LSTM with attention — all running live in your browser,
+          painted against Van Gogh's swirling night sky.
+        </p>
+      </div>
+      <div class="badge-group">
+        <span class="badge">UCI HAR Dataset</span>
+        <span class="badge">128 Steps</span>
+        <span class="badge">9 Channels</span>
+        <span class="badge">BiLSTM + Attention</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <aside class="panel glass-panel">
+        <div class="panel-glow"></div>
+        <h2><span class="icon">☽</span> Choose a Window</h2>
+        <label for="sample">Held-out test windows</label>
+        <select id="sample"></select>
+        <div class="row">
+          <button type="button" id="run">
+            <span class="btn-star">★</span> Read this window
+          </button>
+        </div>
+        <label for="csv" style="margin-top:16px">Or upload a CSV (128 rows × 9 columns)</label>
+        <input id="csv" type="file" accept=".csv,text/csv" />
+        <p class="hint">Order: body acc xyz, gyro xyz, total acc xyz — same as the UCI inertial files.</p>
+        <p class="meta" id="status">Weights loaded with the page. First click takes a moment while the LSTM walks the 128 steps in both directions.</p>
+
+        <div class="activity-icons">
+          <div class="act-icon" title="Walking">🚶</div>
+          <div class="act-icon" title="Walking Upstairs">🔼</div>
+          <div class="act-icon" title="Walking Downstairs">🔽</div>
+          <div class="act-icon" title="Sitting">🪑</div>
+          <div class="act-icon" title="Standing">🧍</div>
+          <div class="act-icon" title="Laying">🛏️</div>
+        </div>
+      </aside>
+
+      <section class="panel glass-panel">
+        <div class="panel-glow"></div>
+        <h2><span class="icon">✦</span> What the Phone Felt</h2>
+        <canvas id="signals" class="chart" width="900" height="210"></canvas>
+        <div class="pred">
+          <strong id="guess">—</strong>
+          <span id="conf"></span>
+        </div>
+        <div class="bars" id="bars"></div>
+        <h2 style="margin-top:20px"><span class="icon">◉</span> Where Attention Sat</h2>
+        <canvas id="attn" class="chart" width="900" height="140"></canvas>
+        <p class="meta" id="peak"></p>
+      </section>
+    </div>
+
+    <footer class="note">
+      <p>
+        <strong>Starry Night — HAR</strong> · Applied Machine Learning, Assignment 4.<br>
+        Sitting &amp; standing are the pair the waist sensor struggles with.
+        Laying is the easy one — gravity sits on a different axis entirely.
+      </p>
+      <p class="credit">Interface inspired by <em>The Starry Night</em> (1889) — Vincent van Gogh</p>
+    </footer>
+  </div>
+
+  <script src="weights.js"></script>
+  <script src="samples.js"></script>
+  <script src="infer.js"></script>
+  <script src="sky.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
