@@ -1,0 +1,79 @@
+{
+  "test_accuracy": 0.9144893111638955,
+  "confusion_matrix": [
+    [
+      435,
+      31,
+      24,
+      0,
+      6,
+      0
+    ],
+    [
+      6,
+      463,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      9,
+      409,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      367,
+      122,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      48,
+      484,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      537
+    ]
+  ],
+  "per_class_accuracy": {
+    "WALKING": 0.8770161290322581,
+    "WALKING_UPSTAIRS": 0.9830148619957537,
+    "WALKING_DOWNSTAIRS": 0.9738095238095238,
+    "SITTING": 0.7474541751527495,
+    "STANDING": 0.9097744360902256,
+    "LAYING": 1.0
+  },
+  "mean_max_alpha": {
+    "WALKING": 0.29781943559646606,
+    "WALKING_UPSTAIRS": 0.2363857924938202,
+    "WALKING_DOWNSTAIRS": 0.2784265875816345,
+    "SITTING": 0.014436949044466019,
+    "STANDING": 0.018414920195937157,
+    "LAYING": 0.010562123730778694
+  },
+  "n_test": 2947,
+  "example_indices": {
+    "WALKING": 79,
+    "WALKING_UPSTAIRS": 133,
+    "WALKING_DOWNSTAIRS": 109,
+    "SITTING": 44,
+    "STANDING": 0,
+    "LAYING": 55
+  },
+  "matrix_total": 2947
+}

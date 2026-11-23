@@ -1,0 +1,104 @@
+{
+  "mean": [
+    -0.0007024059887044132,
+    -0.00026787471142597497,
+    -0.00032155337976291776,
+    -0.0007593522313982248,
+    -0.0007652643253095448,
+    -0.0002924670116044581,
+    0.7999697923660278,
+    0.020704951137304306,
+    0.07646593451499939
+  ],
+  "std": [
+    0.19890375435352325,
+    0.12258008122444153,
+    0.1089911162853241,
+    0.40147191286087036,
+    0.3892265558242798,
+    0.2651287615299225,
+    0.41944244503974915,
+    0.38310423493385315,
+    0.3767288029193878
+  ],
+  "channels": [
+    "body_acc_x",
+    "body_acc_y",
+    "body_acc_z",
+    "body_gyro_x",
+    "body_gyro_y",
+    "body_gyro_z",
+    "total_acc_x",
+    "total_acc_y",
+    "total_acc_z"
+  ],
+  "activity_names": [
+    "WALKING",
+    "WALKING_UPSTAIRS",
+    "WALKING_DOWNSTAIRS",
+    "SITTING",
+    "STANDING",
+    "LAYING"
+  ],
+  "val_subjects": [
+    3,
+    15,
+    25,
+    30
+  ],
+  "n_train": 5891,
+  "n_val": 1461,
+  "n_test": 2947,
+  "train_subjects": [
+    1,
+    5,
+    6,
+    7,
+    8,
+    11,
+    14,
+    16,
+    17,
+    19,
+    21,
+    22,
+    23,
+    26,
+    27,
+    28,
+    29
+  ],
+  "val_subjects_present": [
+    3,
+    15,
+    25,
+    30
+  ],
+  "test_subjects": [
+    2,
+    4,
+    9,
+    10,
+    12,
+    13,
+    18,
+    20,
+    24
+  ],
+  "train_counts_raw": {
+    "WALKING": 1226,
+    "WALKING_UPSTAIRS": 1073,
+    "WALKING_DOWNSTAIRS": 986,
+    "SITTING": 1286,
+    "STANDING": 1374,
+    "LAYING": 1407
+  },
+  "test_counts_raw": {
+    "WALKING": 496,
+    "WALKING_UPSTAIRS": 471,
+    "WALKING_DOWNSTAIRS": 420,
+    "SITTING": 491,
+    "STANDING": 532,
+    "LAYING": 537
+  }
+}
