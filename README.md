@@ -4,9 +4,11 @@
 
 ![Van Gogh Starry Night](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg)
 
-## 🌙 Live Demo
+## 🌙 Live Demo & Research Poster
 
-**[→ Open the Starry Night HAR Demo](https://laibasan.github.io/human-activity-recognition/)**
+- **[→ Open the Starry Night HAR Demo](https://laibasan.github.io/human-activity-recognition/)**
+- **[→ View Interactive Research Poster (HTML / Printable)](https://laibasan.github.io/human-activity-recognition/poster.html)**
+- **[→ High-Resolution Poster Image (PNG)](https://raw.githubusercontent.com/laibasan/human-activity-recognition/main/results/poster.png)**
 
 ## 📖 About
 
