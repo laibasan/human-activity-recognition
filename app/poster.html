@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Poster — Human Activity Recognition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #071120;
+      --card-bg: #0b1a2e;
+      --header-bg: #0d203a;
+      --gold: #f2c744;
+      --gold-light: #ffe58a;
+      --cyan: #8fd0e8;
+      --blue-border: #2a5a9a;
+      --text: #e8eef8;
+      --muted: #b7c6dc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Source Serif 4", Georgia, serif;
+      padding: 24px;
+      line-height: 1.45;
+      font-size: 14.5px;
+    }
+
+    .poster {
+      max-width: 1540px;
+      margin: 0 auto;
+      background: var(--bg);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0d203a, #163660);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px 32px;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    header .subtitle {
+      font-size: 1.25rem;
+      color: var(--cyan);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    header .meta-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(242, 199, 68, 0.25);
+      padding-top: 10px;
+    }
+
+    header .meta-bar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    header .meta-bar strong {
+      color: var(--gold);
+    }
+
+    /* Layout Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--blue-border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .card h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      border-bottom: 2px solid rgba(242, 199, 68, 0.4);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    p, li {
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    li { margin-bottom: 5px; }
+
+    strong { color: var(--gold-light); }
+
+    .formula {
+      background: rgba(10, 25, 50, 0.8);
+      border-left: 3px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.86rem;
+      margin: 10px 0;
+      color: #9ad4f5;
+      overflow-x: auto;
+    }
+
+    .img-box {
+      margin: 12px 0 8px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(143, 208, 232, 0.25);
+      background: #050c18;
+      text-align: center;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 7px 10px;
+      text-align: left;
+      border-bottom: 1px solid rgba(143, 208, 232, 0.15);
+    }
+
+    th {
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem;
+      background: rgba(42, 90, 154, 0.2);
+    }
+
+    td { color: var(--text); }
+
+    .badge-tag {
+      background: rgba(242, 199, 68, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Print styling */
+    @media print {
+      body {
+        padding: 0;
+        background: #071120 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .poster { max-width: 100%; }
+      .nav-bar { display: none; }
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #1d4a7a, #0d203a);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      filter: brightness(1.2);
+      box-shadow: 0 0 12px rgba(242, 199, 68, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="nav-bar">
+      <a href="index.html" class="btn">← Back to Interactive Starry Night Demo</a>
+      <button onclick="window.print()" class="btn">🖨️ Print / Save as PDF</button>
+    </div>
+
+    <header>
+      <h1>RECOGNIZING HUMAN ACTIVITY FROM PHONE MOTION SENSORS</h1>
+      <div class="subtitle">Custom Bidirectional LSTM with Temporal Attention Built from Scratch in PyTorch</div>
+      <div class="meta-bar">
+        <span><strong>Course:</strong> Applied Machine Learning (Fall 2026)</span>
+        <span><strong>Benchmark:</strong> UCI HAR (10,299 windows, 30 subjects)</span>
+        <span><strong>Test Accuracy:</strong> 91.45% (2,695 / 2,947)</span>
+        <span><strong>Parameters:</strong> 46,982 Trainable</span>
+        <span><strong>Deployment:</strong> GitHub Pages (Client-side JS)</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- COLUMN 1: DATA & SIGNALS -->
+      <div class="col">
+        <div class="card">
+          <h2>1. Problem & The 9 Inertial Signals</h2>
+          <p>
+            Recognize six human physical activities from a single <strong>2.56-second sliding window</strong>
+            (128 time steps at 50 Hz) captured by waist-worn smartphone sensors.
+          </p>
+          <ul>
+            <li><strong>30 Volunteers</strong> (ages 19–48) wearing a Samsung Galaxy S II.</li>
+            <li><strong>6 Target Activities:</strong> Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying.</li>
+          </ul>
+          <p><strong>The 9 Raw Channels per time step (x<sub>t</sub> ∈ ℝ<sup>9</sup>):</strong></p>
+          <ul>
+            <li><code>body_acc_x/y/z</code>: Linear body acceleration without gravity (g).</li>
+            <li><code>body_gyro_x/y/z</code>: Angular velocity around 3 axes (rad/s).</li>
+            <li><code>total_acc_x/y/z</code>: Raw acceleration including Earth's 1g gravity (g).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>2. Raw Sensor Waveforms</h2>
+          <div class="img-box">
+            <img src="../results/example_windows.png" alt="Example Sensor Windows" />
+          </div>
+          <div class="caption">
+            Top row: body acceleration; Bottom row: angular velocity (Task 1.3).
+          </div>
+          <p style="margin-top:10px;">
+            <strong>Moving vs. Still Dichotomy:</strong> Dynamic activities exhibit energetic, periodic wave trains (±0.5g)
+            driven by cyclic foot strikes. Still activities show flat, quiescent lines near zero dynamic acceleration.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>3. Subject-Independent Splitting</h2>
+          <p>
+            Adjacent windows overlap by <strong>50% (1.28 s)</strong>. Random window partitioning would leak identical temporal
+            features across splits. To evaluate true out-of-sample generalization:
+          </p>
+          <table>
+            <thead>
+              <tr><th>Split</th><th>Subjects</th><th>Windows</th><th>Ratio</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Train</td><td>17 volunteers</td><td>5,881</td><td>57.1%</td></tr>
+              <tr><td>Validation</td><td>4 (3, 15, 25, 30)</td><td>1,471</td><td>14.3%</td></tr>
+              <tr><td>Test</td><td>9 volunteers</td><td>2,947</td><td>28.6%</td></tr>
+            </tbody>
+          </table>
+          <p class="caption">Standardization computed strictly on training windows.</p>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: ARCHITECTURE & TRAINING -->
+      <div class="col">
+        <div class="card">
+          <h2>4. Architecture Built from Scratch</h2>
+          <p>
+            Assignment constraint: <strong>Zero black-box APIs</strong> (no <code>nn.LSTM</code>, <code>nn.RNNCell</code>, or <code>nn.MultiheadAttention</code>).
+            All recurrent layers built from gate equations:
+          </p>
+          
+          <p><strong>Custom LSTM Cell:</strong> Unified parameter matrices W (4H×D), U (4H×H), b (4H):</p>
+          <div class="formula">
+[i_t, f_t, g_t, o_t]ᵀ = [σ, σ, tanh, σ](W x_t + U h_{t-1} + b)<br>
+c_t = f_t ⊙ c_{t-1} + i_t ⊙ g_t   (memory highway)<br>
+h_t = o_t ⊙ tanh(c_t)             (hidden state, H=64)
+          </div>
+
+          <p><strong>Bidirectional LSTM:</strong> Forward pass (x₁ → x₁₂₈) and reversed backward pass (x₁₂₈ → x₁) concatenated:</p>
+          <div class="formula">
+h_t = [→h_t ; ←h_t] ∈ ℝ¹²⁸
+          </div>
+
+          <p><strong>Additive Bahdanau Attention Pooling:</strong></p>
+          <div class="formula">
+e_t = vᵀ tanh(W_a h_t + b_a),  α_t = softmax(e_t)<br>
+context c = ∑ α_t h_t ∈ ℝ¹²⁸ → Linear(128, 6)
+          </div>
+
+          <p><strong>Exact Hand Parameter Count (46,982):</strong></p>
+          <ul>
+            <li>BiLSTM: 2 × [4×64×9 + 4×64×64 + 4×64] = <strong>37,888</strong></li>
+            <li>Attention: 64×128 + 64 + 64 = <strong>8,320</strong></li>
+            <li>Linear Readout: 128×6 + 6 = <strong>774</strong></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>5. Training Dynamics (30 Epochs)</h2>
+          <div class="img-box">
+            <img src="../results/training_curves.png" alt="Training Curves" />
+          </div>
+          <div class="caption">
+            Cross-entropy loss and validation accuracy across 30 epochs (Task 3.2).
+          </div>
+          <ul>
+            <li><strong>Initial Loss:</strong> 1.8049 (matches theoretical ln 6 ≈ 1.7918).</li>
+            <li><strong>Best Checkpoint:</strong> Epoch 5 | Val Loss: 0.1208 | <strong>Val Acc: 96.44%</strong>.</li>
+            <li><strong>Optimization:</strong> Adam (lr = 10⁻³), batch 64, gradient clipping norm 1.0.</li>
+            <li><strong>Training Time:</strong> 35.5 minutes on CPU.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COLUMN 3: RESULTS, ATTENTION & TASK 6 -->
+      <div class="col">
+        <div class="card">
+          <h2>6. Test Results & Confusion Matrix</h2>
+          <p>Final test accuracy on held-out subjects: <span class="badge-tag">91.45% Overall</span> (2,695 / 2,947 correct).</p>
+          
+          <div class="img-box">
+            <img src="../results/confusion_matrix.png" alt="Confusion Matrix" />
+          </div>
+
+          <table>
+            <thead>
+              <tr><th>Activity</th><th>Accuracy</th><th>Mean Max α</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>WALKING</td><td>87.70%</td><td>0.2978</td></tr>
+              <tr><td>UPSTAIRS</td><td>98.30%</td><td>0.2364</td></tr>
+              <tr><td>DOWNSTAIRS</td><td>97.38%</td><td>0.2784</td></tr>
+              <tr><td>SITTING</td><td>74.75%</td><td>0.0144</td></tr>
+              <tr><td>STANDING</td><td>90.98%</td><td>0.0184</td></tr>
+              <tr><td>LAYING</td><td>100.00%</td><td>0.0106</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>7. Attention Analysis & Task 6 Answers</h2>
+          <div class="img-box">
+            <img src="../results/attention_mean.png" alt="Mean Attention Curves" />
+          </div>
+          <div class="caption">Mean attention profile over 2.56 seconds across activities (Task 5.2).</div>
+
+          <ul style="margin-top:10px;">
+            <li><strong>Attention Peakedness (6.4):</strong> Walking peaks sharply (mean max α = 0.2978), focusing ~30% of decision weight on foot-strike shocks. Static postures diffuse evenly (~0.010–0.018 ≈ flat 1/128) because signals are stationary.</li>
+            <li><strong>100% Laying Accuracy (6.3):</strong> Gravity rotates 90° onto the orthogonal <code>total_acc_x</code> axis—an unmistakable static shift.</li>
+            <li><strong>Sitting vs. Standing (6.2):</strong> Confused most often (122 sits called stands) due to identical waist gravity angles and zero dynamic motion.</li>
+            <li><strong>BiLSTM Constraint (6.5):</strong> Allowed in offline window classification; strictly disallowed in zero-latency streaming (fall triggers, real-time control).</li>
+            <li><strong>Error Carousel (6.6):</strong> c_t = f_t⊙c_{t-1} + i_t⊙g_t creates an additive gradient highway, eliminating vanishing gradients over 128 steps.</li>
+          </ul>
+
+          <div style="margin-top: 14px; padding: 10px; background: rgba(242,199,68,0.1); border-radius: 8px; border: 1px solid var(--gold);">
+            <strong>Interactive Starry Night Web Deployment:</strong><br>
+            • Client-side inference in pure JS (<code>infer.js</code>)<br>
+            • Live: <code>laibasan.github.io/human-activity-recognition/</code><br>
+            • GitHub: <code>github.com/laibasan/human-activity-recognition</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
